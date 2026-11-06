@@ -77,5 +77,14 @@ app.get("/janken", (req, res) => {
   res.render( 'janken', display );
 });
 
+app.get("/keiyo_add", (req, res) => {
+  let id = req.query.id;
+  let code = req.query.code;
+  let name = req.query.name;
+  let newdata = { id: id, code: code, name: name };
+  station.push( newdata );
+  res.redirect('/public/keiyo_add.html');
+});
+
 app.listen(8080, () => console.log("Example app listening on port 8080!"));
 
